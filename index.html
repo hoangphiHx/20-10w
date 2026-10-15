@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Một lời chúc dành cho cậu ✨</title>
+<style>
+:root{--cyan:#19fff6;--pink:#ff9dbb;--white:#effcff}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;background:#020308;color:var(--white);font-family:"Courier New",monospace}
+body{overflow:hidden}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.scene{position:fixed;inset:0;display:none;z-index:1;align-items:center;justify-content:center;text-align:center;padding:28px;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#062326 0%,#03060b 42%,#000 78%)}
+.scene.active{display:flex;animation:fade .8s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+h1,p{font-weight:500;text-shadow:0 0 8px #d9ffff,0 0 24px #8afaff;letter-spacing:.12em}
+h1{font-size:clamp(1.7rem,4vw,3.2rem);line-height:1.45;margin:0 0 32px}
+p{font-size:clamp(1.15rem,2.5vw,2rem);line-height:1.7}
+.content{position:relative;z-index:2;max-width:1000px;width:100%}
+.neon{width:clamp(100px,14vw,170px);height:clamp(100px,14vw,170px);border:0;border-radius:28%;background:var(--cyan);box-shadow:0 0 18px var(--cyan),0 0 48px #00f5e8,0 0 95px #00bcb4;cursor:pointer;transition:transform .25s,filter .25s}
+.neon:hover{transform:scale(1.07) rotate(-3deg);filter:brightness(1.2)}
+.pair{display:flex;gap:clamp(30px,9vw,120px);justify-content:center;align-items:center;flex-wrap:wrap}
+.label{margin-top:24px}
+.btn{font-family:inherit;font-weight:bold;color:#dffcff;background:#102437;border:1px solid #50faff;border-radius:24px;padding:14px 22px;cursor:pointer;box-shadow:0 0 20px #00d9df55;transition:.2s}
+.btn:hover{background:#0b5960;transform:translateY(-2px)}
+.pink{color:var(--pink);text-shadow:0 0 10px #ff739f,0 0 28px #ff2d7a}
+.bottom{position:absolute;bottom:25px;left:0;right:0;z-index:3}
+.flowers{position:absolute;bottom:-15px;left:0;width:100%;height:34%;font-size:clamp(1.2rem,3vw,2.5rem);display:flex;align-items:flex-end;justify-content:space-around;opacity:.9;pointer-events:none;filter:drop-shadow(0 0 8px #42ffe9)}
+.flowers span{animation:sway 3s ease-in-out infinite alternate;transform-origin:bottom}
+.flowers span:nth-child(even){animation-delay:-1.4s}
+@keyframes sway{to{transform:rotate(10deg) translateY(-12px)}}
+.leaves{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.leaves span{position:absolute;top:-10%;animation:fall linear infinite;color:#e7b528;text-shadow:0 0 10px #ffc400}
+@keyframes fall{to{transform:translateY(120vh) rotate(540deg)}}
+.orb{font-size:clamp(5rem,14vw,10rem);color:var(--cyan);text-shadow:0 0 25px #00ffff,0 0 65px #00d7ff;animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scale(1.09);filter:brightness(1.3)}}
+.heart{font-size:clamp(4rem,10vw,8rem);color:#ff739d;animation:pulse 1.7s infinite}
+.small{font-size:1rem;letter-spacing:.08em;opacity:.8}
+@media(max-width:600px){.scene{padding:18px}.pair{gap:22px}.neon{width:100px;height:100px}.flowers{height:23%}h1{letter-spacing:.06em}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<section class="scene active" id="s0"><div class="content"><h1>này cậu gì ơi</h1><button class="btn" onclick="go(1)">tớ có điều muốn nói ✦</button></div></section>
+<section class="scene" id="s1"><div class="content"><div class="pair"><button class="neon" aria-label="Khối sáng" onclick="go(2)"></button><button class="neon" aria-label="Khối sáng" onclick="go(2)"></button></div><p class="label">tớ là Tiny</p><button class="btn" onclick="go(2)">sang đi~ →</button></div></section>
+<section class="scene" id="s2"><div class="content"><h1>Hôm nay tớ nhận lệnh từ Dr P là để...</h1><div class="pair"><button class="neon" onclick="go(3)"></button><button class="neon" onclick="go(3)"></button></div><p class="small pink">////　////</p><button class="btn" onclick="go(3)">Tiếp tục →</button></div><div class="flowers"><span>🌼</span><span>🌷</span><span>✿</span><span>🌸</span><span>❀</span><span>🌻</span><span>🌺</span></div><div class="leaves" id="leaves"></div></section>
+<section class="scene" id="s3"><div class="content"><h1 class="pink">à thì cũng sắp<br>20/10 rồi</h1><div class="pair"><button class="neon" onclick="go(4)"></button><button class="neon" onclick="go(4)"></button></div><button class="btn bottom" onclick="go(4)">sang đi~ →</button></div><div class="flowers"><span>🌷</span><span>🌼</span><span>🌸</span><span>❀</span><span>🌺</span><span>🌻</span><span>🌷</span><span>✿</span></div><div class="leaves" id="leaves2"></div></section>
+<section class="scene" id="s4"><div class="content"><h1>nên là tớ muốn</h1><div class="orb">✧</div><p>gửi cậu một lời chúc thật đặc biệt</p><button class="btn" onclick="go(5)">Mở lời chúc ✨</button></div></section>
+<section class="scene" id="s5"><div class="content"><h1>chúc cậu thật nhiều sức khỏe</h1><div class="pair"><div class="heart">♡</div><button class="neon" onclick="go(6)" aria-label="Mở lời chúc tiếp theo"></button></div><p>Luôn vui vẻ, bình an và gặp thật nhiều điều dịu dàng nhé!</p><button class="btn" onclick="go(6)">Còn một điều nữa →</button></div></section>
+<section class="scene" id="s6"><div class="content"><div class="heart">♥</div><h1 class="pink">Chúc mừng ngày 20/10!</h1><p>Chúc cậu luôn rạng rỡ theo cách riêng của mình.<br>Mong mọi điều tốt đẹp sẽ tìm đến cậu 💗</p><button class="btn" onclick="go(0)">Xem lại từ đầu ↻</button><p class="small">Made with ♡ just for you</p></div></section>
+<script>
+function go(n){document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));document.getElementById('s'+n).classList.add('active')}
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');let stars=[];
+function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);stars=Array.from({length:Math.min(180,Math.floor(innerWidth*innerHeight/6500))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.3,a:Math.random(),v:Math.random()*.012+.003}))}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){s.a+=s.v;if(s.a>1||s.a<0)s.v*=-1;ctx.globalAlpha=Math.max(.15,Math.min(1,s.a));ctx.fillStyle='#dffcff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();draw();
+for(const id of ['leaves','leaves2']){const el=document.getElementById(id);for(let i=0;i<24;i++){const s=document.createElement('span');s.textContent=['🍂','🍁','✦'][i%3];s.style.left=Math.random()*100+'%';s.style.animationDuration=(7+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*15)+'s';s.style.fontSize=(12+Math.random()*18)+'px';el.appendChild(s)}}
+</script>
+</body></html>
